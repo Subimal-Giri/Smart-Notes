@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema(
     {
@@ -31,6 +32,18 @@ const userSchema = new mongoose.Schema(
     },
     { timestamps: true }
 )
+
+
+// This is used for Encrypt the Password converting Hash password before save
+userSchema.pre("save", async function () {
+    if (!this.isModified("password")) return;
+    this.password = await bcrypt.hash(this.password, 10)
+})
+
+// Compare password
+userSchema.methods.isPasswordCorrect = async function (password) {
+    return await bcrypt.compare(password, this.password)
+}
 
 
 
