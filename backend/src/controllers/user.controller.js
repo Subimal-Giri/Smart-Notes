@@ -4,6 +4,28 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 
+// Generate Access & RefereshToken, if password true, when loging
+const generateAccessAndRefereshToken = async (userId) => {
+    try {
+        const user = await User.findById(userId)
+
+        if (!user) {
+            throw new ApiError(404, "User not found")
+        }
+
+        const accessToken = user.generateAccessToken()
+        const refreshToken = user.generateRefreshToken()
+
+        user.refreshToken = refreshToken
+        await user.save({ validateBeforeSave: false })
+
+        return { accessToken, refreshToken }
+    }
+    catch (error) {
+        throw new ApiError(500, "Something went wrong while generating access and refresh token")
+    }
+};
+
         // Register
 const registerUser = asyncHandler(async (req, res) => {
     // 1) get user details from frontend
