@@ -35,7 +35,16 @@ const getArchived = asyncHandler(async (req, res) => {
 });
 
 const getTrashed = asyncHandler(async (req, res) => {
-    
+    const notes = await Note.find({
+        user: req.user._id,
+        isDeleted: true
+    })
+        .populate("tags")
+        .sort({ deletedAt: -1 });
+
+    return res.status(200).json(
+        new ApiResponse(200, notes, "You get Trashed notes")
+    );
 });
 
 const searchNotes = asyncHandler(async (req, res) => {
