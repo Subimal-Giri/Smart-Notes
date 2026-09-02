@@ -7,7 +7,17 @@ import mongoose from "mongoose";
 const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
 
 const getAllNotes = asyncHandler(async (req, res) => {
-    
+    const notes = await Note.find({
+        user: req.user._id,
+        isDeleted: false,
+        isArchived: false
+    })
+        .populate("tags")
+        .sort({ isPinned: -1, updatedAt: -1 });
+
+    return res.status(200).json(
+        new ApiResponse(200, notes, "All notes fetched")
+    );
 });
 
 const getArchived = asyncHandler(async (req, res) => {
