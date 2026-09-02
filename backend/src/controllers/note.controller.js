@@ -126,7 +126,30 @@ const deleteNote = asyncHandler(async (req, res) => {
 });
 
 const trashNote = asyncHandler(async (req, res) => {
+    if (!isValidId(req.params.id)) {
+        throw new ApiError(400, "Invalid note id");
+    }
 
+    const note = await Note.findOneAndUpdate(
+        {
+            _id: req.params.id,
+            user: req.user._id
+        },
+        {
+            isDeleted: true,
+            deletedAt: new Date(),
+            isPinned: false
+        },
+        { new: true }
+    ).populate("tags");
+
+    if (!note) {
+        throw new ApiError(404, "Note not found");
+    }
+
+    return res.status(200).json(
+        new ApiResponse(200, note, "Moved to trash")
+    );
 });
 
 const restoreNote = asyncHandler(async (req, res) => {
