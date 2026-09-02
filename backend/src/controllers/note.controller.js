@@ -153,7 +153,29 @@ const trashNote = asyncHandler(async (req, res) => {
 });
 
 const restoreNote = asyncHandler(async (req, res) => {
+    if (!isValidId(req.params.id)) {
+        throw new ApiError(400, "Invalid note id");
+    }
 
+    const note = await Note.findOneAndUpdate(
+        {
+            _id: req.params.id,
+            user: req.user._id
+        },
+        {
+            isDeleted: false,
+            deletedAt: null
+        },
+        { new: true }
+    ).populate("tags");
+
+    if (!note) {
+        throw new ApiError(404, "Note not found");
+    }
+
+    return res.status(200).json(
+        new ApiResponse(200, note, "Note restored")
+    );
 });
 
 const pinNote = asyncHandler(async (req, res) => {
