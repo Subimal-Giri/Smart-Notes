@@ -21,7 +21,17 @@ const getAllNotes = asyncHandler(async (req, res) => {
 });
 
 const getArchived = asyncHandler(async (req, res) => {
-    
+    const notes = await Note.find({
+        user: req.user._id,
+        isArchived: true,
+        isDeleted: false
+    })
+        .populate("tags")
+        .sort({ updatedAt: -1 });
+
+    return res.status(200).json(
+        new ApiResponse(200, notes, "You get all Archived notes")
+    );
 });
 
 const getTrashed = asyncHandler(async (req, res) => {
