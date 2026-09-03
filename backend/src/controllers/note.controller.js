@@ -225,7 +225,34 @@ const pinNote = asyncHandler(async (req, res) => {
 });
 
 const archiveNote = asyncHandler(async (req, res) => {
+    if (!isValidId(req.params.id)) {
+        throw new ApiError(400, "Invalid note id");
+    }
 
+    const note = await Note.findOne({
+        _id: req.params.id,
+        user: req.user._id
+    }).populate("tags");
+
+    if (!note) {
+        throw new ApiError(404, "Note not found");
+    }
+
+    note.isArchived = !note.isArchived;    
+    if (note.isArchived) {
+        note.isPinned = false;
+    }
+    await note.save();
+
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            note,
+            note.isArchived
+                ? "Note archived successfully"
+                : "Note unarchived successfully"
+        )
+    );
 });
 
 const syncTags = asyncHandler(async (req, res) => {
