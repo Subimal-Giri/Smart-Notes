@@ -277,7 +277,28 @@ const archiveNote = asyncHandler(async (req, res) => {
 });
 
 const syncTags = asyncHandler(async (req, res) => {
+    if (!isValidId(req.params.id)) {
+        throw new ApiError(400, "Invalid note id");
+    }
 
+    const { tags } = req.body;
+
+    const note = await Note.findOneAndUpdate(
+        {
+            _id: req.params.id,
+            user: req.user._id
+        },
+        { tags },
+        { new: true }
+    ).populate("tags");
+
+    if (!note) {
+        throw new ApiError(404, "Note not found");
+    }
+
+    return res.status(200).json(
+        new ApiResponse(200, note, "Tags updated successfully")
+    );
 });
 
 export {
