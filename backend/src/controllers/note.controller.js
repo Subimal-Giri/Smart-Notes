@@ -48,7 +48,28 @@ const getTrashed = asyncHandler(async (req, res) => {
 });
 
 const searchNotes = asyncHandler(async (req, res) => {
-    
+    const query = (req.query.query || "").trim();
+
+    if (!query) {
+        throw new ApiError(400, "Search query is required");
+    }
+
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+    const notes = await Note.find({
+        user: req.user._id,
+        isDeleted: false,
+        $or: [
+            { title: { $regex: escaped, $options: "i" } },
+            { content: { $regex: escaped, $options: "i" } }
+        ]
+    })
+        .populate("tags")
+        .sort({ isPinned: -1, updatedAt: -1 });
+
+    return res.status(200).json(
+        new ApiResponse(200, notes, "Search results")
+    );
 });
 
 const getById = asyncHandler(async (req, res) => {
