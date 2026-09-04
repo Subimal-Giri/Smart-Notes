@@ -70,7 +70,23 @@ const updateTag = asyncHandler(async (req, res) => {
 });
 
 const deleteTag = asyncHandler(async (req, res) => {
+    const tag = await Tag.findOneAndDelete({
+        _id: req.params.id,
+        user: req.user._id
+    });
 
+    if (!tag) {
+        throw new ApiError(404, "Tag not found");
+    }
+
+    await Note.updateMany(
+        { user: req.user._id, tags: req.params.id },
+        { $pull: { tags: req.params.id } }
+    );
+
+    return res.status(200).json(
+        new ApiResponse(200, {}, "Tag deleted successfully")
+    );
 });
 
 
