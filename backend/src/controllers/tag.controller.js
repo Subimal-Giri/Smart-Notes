@@ -66,7 +66,28 @@ const getAllTags = asyncHandler(async (req, res) => {
 });
 
 const updateTag = asyncHandler(async (req, res) => {
+    const { tagName, color } = req.body;
 
+    if (!tagName) {
+        throw new ApiError(400, "Tag name is required");
+    }
+
+    const updatedTag = await Tag.findOneAndUpdate(
+        {
+            _id: req.params.id,
+            user: req.user._id
+        },
+        { tagName, color },
+        { new: true }
+    );
+
+    if (!updatedTag) {
+        throw new ApiError(404, "Tag not found");
+    }
+
+    return res.status(200).json(
+        new ApiResponse(200, updatedTag, "Tag updated successfully")
+    );
 });
 
 const deleteTag = asyncHandler(async (req, res) => {
