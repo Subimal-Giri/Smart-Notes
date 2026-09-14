@@ -695,6 +695,49 @@ html.dark .landing-nav {
     line-height: 1.65;
 }
     /* --- Feature End --- */
+    /* --- How it works Start --- */
+.steps-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+}
+
+.step-item {
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.1rem;
+    box-shadow: 0 6px 16px -4px rgba(109, 92, 231, .5);
+}
+
+.step-item h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: .4rem;
+}
+
+.step-item p {
+    font-size: .8125rem;
+    color: var(--text-2);
+    line-height: 1.6;
+    max-width: 260px;
+    margin: 0 auto;
+}
+    /* --- How it works End --- */
 
 
 
