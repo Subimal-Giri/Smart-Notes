@@ -773,9 +773,6 @@ html.dark .landing-nav {
     background: #F1EFFE;
 }
     /* --- CTA End --- */
-
-
-
     /* --- Footer Start --- */
 .landing-footer {
     border-top: 1px solid var(--border-light);
@@ -848,4 +845,226 @@ html.dark .landing-nav {
     color: #fff;
 }
     /* --- Footer End --- */
+
+                /* AUTH PAGES (Login / Register) */
+.auth-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--bg);
+}
+    /* --- Auth Side Panel Start --- */
+.auth-side {
+    background: linear-gradient(160deg, var(--primary) 0%, #8B7CF6 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-side::before {
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .08);
+    top: -100px;
+    right: -100px;
+}
+
+.auth-side::after {
+    content: '';
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .06);
+    bottom: -80px;
+    left: -60px;
+}
+
+.auth-side-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-side-brand__icon {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, .18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+}
+
+.auth-side-content {
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+}
+
+.auth-side-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+}
+
+.auth-side-content p {
+    font-size: .95rem;
+    opacity: .9;
+    line-height: 1.7;
+}
+
+.auth-side-points {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-side-point {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: .875rem;
+}
+
+.auth-side-point i {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+    flex-shrink: 0;
+}
+    
+.auth-side-foot {
+    position: relative;
+    z-index: 1;
+    font-size: .75rem;
+    opacity: .75;
+}
+    /* --- Auth Side Panel End --- */
+    /* --- Login / Register Form Start --- */
+.auth-form-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-card-mobile-brand {
+    display: none;
+}
+
+.auth-head {
+    margin-bottom: 2rem;
+}
+
+.auth-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .8125rem;
+    font-weight: 600;
+    color: var(--text-2);
+    margin-bottom: 1.5rem;
+}
+
+.auth-back-link:hover {
+    color: var(--primary);
+}
+
+.auth-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: .4rem;
+}
+
+.auth-subtitle {
+    font-size: .875rem;
+    color: var(--text-2);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+.auth-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .85rem;
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-3);
+    font-size: .75rem;
+    margin: .35rem 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.75rem;
+    font-size: .875rem;
+    color: var(--text-2);
+}
+
+.auth-footer a {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.auth-terms {
+    font-size: .75rem;
+    color: var(--text-3);
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
+.auth-terms a {
+    color: var(--text-2);
+    text-decoration: underline;
+}
+    /* --- Login / Register Form End --- */
+
 
