@@ -1,9 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { formatDate } from "../../utils/dateFormatter.js";
 import { stripHtml, truncate } from "../../utils/textHelper.js";
+import EmptyState from "../ui/EmptyState.jsx";
 
 function RecentNotesList({ notes }) {
     const navigate = useNavigate();
+
+    if (!notes.length) {
+        return <EmptyState icon="fa-note-sticky" title="No notes yet" text="Create your first note to see it here." />;
+    }
 
     return (
         <div>
