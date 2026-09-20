@@ -466,6 +466,39 @@ button:disabled {
     /* --- Forms End --- */
 
 
+    /* --- Avatar Start --- */
+.avatar {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--primary), #9B8CFF);
+    text-transform: uppercase;
+}
+
+.avatar--sm {
+    width: 32px;
+    height: 32px;
+    font-size: .75rem;
+}
+
+.avatar--md {
+    width: 42px;
+    height: 42px;
+    font-size: .9rem;
+}
+
+.avatar--lg {
+    width: 84px;
+    height: 84px;
+    font-size: 1.75rem;
+}
+    /* --- Avatar End --- */
+
+    
 
     /* --- Empty state Start --- */
 .empty-state {
@@ -1330,4 +1363,4 @@ html.dark .landing-nav {
 }
     /* --- Login / Register Form End --- */
 
-
+                /*   APP SHELL — Sidebar, Header, Collapsible Mobile Drawer   */
