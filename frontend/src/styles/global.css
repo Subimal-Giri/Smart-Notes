@@ -464,8 +464,38 @@ button:disabled {
     cursor: pointer;
 }
     /* --- Forms End --- */
+    /* --- Spinner Start --- */
+.spinner {
+    border-radius: 50%;
+    border: 2.5px solid var(--border);
+    border-top-color: var(--primary);
+    animation: spin .7s linear infinite;
+}
 
+.spinner--sm {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+}
 
+.spinner--md {
+    width: 30px;
+    height: 30px;
+}
+
+.spinner--lg {
+    width: 46px;
+    height: 46px;
+    border-width: 3px;
+}
+
+.spinner-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+}
+    /* --- Spinner End --- */
     /* --- Avatar Start --- */
 .avatar {
     border-radius: 50%;
