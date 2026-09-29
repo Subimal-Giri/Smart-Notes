@@ -1,4 +1,4 @@
-function NoteToolbar() {
+function NoteToolbar({ editor }) {
     if (!editor) return null;
 
     const setLink = () => {

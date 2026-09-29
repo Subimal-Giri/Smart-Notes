@@ -6,7 +6,7 @@ import { useTagStore } from "../../store/tagStore.js";
 import { useUiStore } from "../../store/uiStore.js";
 import { useSortedNotes } from "../../hooks/useSortedNotes.js";
 
-function NoteList() {
+function NoteList({ notes, isLoading, emptyIcon, emptyTitle, emptyText, listName = 'notes', showPinnedGroup = true }) {
     const selectedTagId = useTagStore((s) => s.selectedTagId);
     const { viewMode, sortBy } = useUiStore();
 
