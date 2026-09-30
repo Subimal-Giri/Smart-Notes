@@ -2501,6 +2501,102 @@ html.dark .landing-nav {
 }
     /* --- List view row (used for archive/trash + list-mode toggle) End --- */
 
+                /*   NOTE EDITOR PAGE    */
+.note-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--bg-elevated);
+}
+
+.note-page-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .7rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    background: var(--sidebar-bg);
+    gap: 1rem;
+}
+
+.note-back {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: .8125rem;
+    font-weight: 600;
+    color: var(--text-2);
+    transition: color var(--ease);
+}
+
+.note-back:hover {
+    color: var(--text);
+}
+
+.note-bar-right {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+}
+
+.note-date {
+    font-size: .75rem;
+    color: var(--text-3);
+}
+
+.note-action-btn {
+    transition: all var(--ease);
+    display: flex;
+    align-items: center;
+    color: var(--text-3);
+    padding: 7px;
+    border-radius: var(--radius);
+    font-size: .9rem;
+}
+
+.note-action-btn:hover {
+    background: var(--bg-muted);
+    color: var(--text);
+}
+
+.note-action-btn--active {
+    color: var(--warning);
+}
+
+.note-action-btn--trash:hover {
+    color: var(--danger);
+    background: var(--danger-bg);
+}
+
+.note-head {
+    padding: 1.4rem 1.75rem .5rem;
+    flex-shrink: 0;
+}
+
+.note-title-input {
+    width: 100%;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-bottom: .85rem;
+    line-height: 1.25;
+}
+
+.note-title-input::placeholder {
+    color: var(--text-3);
+}
+
+.note-editor-wrap {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 
