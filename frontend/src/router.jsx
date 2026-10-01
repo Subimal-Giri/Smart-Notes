@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import DashboardPage from "./pages/DashboardPage.jsx";
 import AllNotesPage from "./pages/AllNotesPage.jsx";
 import NotePage from "./pages/NotePage.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
 
 function AppRouter() {
     return (
@@ -25,6 +26,7 @@ function AppRouter() {
                     <Route path="/dashboard" element={<DashboardPage />} />
                     <Route path="/notes" element={<AllNotesPage />} />
                     <Route path="/notes/:id" element={<NotePage />} />
+                    <Route path="/search" element={<SearchPage />} />
                 </Route>
             </Route>
 
