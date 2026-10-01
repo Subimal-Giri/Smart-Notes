@@ -2597,15 +2597,254 @@ html.dark .landing-nav {
     flex-direction: column;
 }
 
+    /* --- Toolbar Start --- */
+.editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+    padding: .55rem .95rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--sidebar-bg);
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
 
+.toolbar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 9px;
+    border-radius: var(--radius);
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--text-2);
+    cursor: pointer;
+    transition: background var(--ease), color var(--ease);
+    min-width: 32px;
+}
 
+.toolbar-btn:hover {
+    background: var(--bg-muted);
+    color: var(--text);
+}
 
+.toolbar-btn.active {
+    background: var(--primary-light);
+    color: var(--primary-text);
+}
 
+.toolbar-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+    margin: 0 4px;
+}
 
+.toolbar-btn input[type=file] {
+    display: none;
+}
 
+.editor-content-wrap {
+    flex: 1;
+    overflow-y: auto;
+}
+    /* --- Toolbar End --- */
+    /* --- Auto save indicator Start --- */
+.save-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .75rem;
+    font-weight: 600;
+}
 
+.save-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
 
+.save-indicator--saved .save-dot {
+    background: var(--success);
+}
 
+.save-indicator--saved .save-text {
+    color: var(--success);
+}
+
+.save-indicator--saving .save-dot {
+    background: var(--warning);
+    animation: pulse 1s infinite;
+}
+
+.save-indicator--saving .save-text {
+    color: var(--warning);
+}
+
+.save-indicator--unsaved .save-dot {
+    background: var(--text-3);
+}
+
+.save-indicator--unsaved .save-text {
+    color: var(--text-3);
+}
+
+.save-indicator--error .save-dot {
+    background: var(--danger);
+}
+
+.save-indicator--error .save-text {
+    color: var(--danger);
+}
+
+.save-retry {
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--danger);
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .35;
+    }
+}
+    /* --- Auto save indicator End --- */
+    /* --- Tag input within note editor Start --- */
+.tag-input-wrap {
+    font-size: .8125rem;
+}
+
+.tag-current {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.tag-available {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.tag-add-btn {
+    padding: 3px 11px;
+    border-radius: var(--radius-full);
+    font-size: .6875rem;
+    border: 1.5px dashed var(--border);
+    color: var(--text-3);
+    transition: all var(--ease);
+}
+
+.tag-add-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    border-style: solid;
+}
+
+.tag-create-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.tag-create-input {
+    flex: 1;
+    min-width: 130px;
+    padding: 5px 9px;
+    font-size: .75rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+    color: var(--text);
+    outline: none;
+}
+
+.tag-create-input:focus {
+    border-color: var(--primary);
+}
+
+.tag-action-link {
+    font-size: .6875rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.tag-action-link:hover {
+    text-decoration: underline;
+}
+
+.tag-action-cancel {
+    font-size: .6875rem;
+    color: var(--text-3);
+}
+
+.btn-new-tag {
+    font-size: .6875rem;
+    color: var(--text-3);
+    margin-top: 2px;
+    transition: color var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-new-tag:hover {
+    color: var(--text-2);
+}
+    /* --- Tag input within note editor End --- */
+    /* --- Tag Badge (shared everywhere) Start --- */
+.tag-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: .6875rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.tag-badge__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .85);
+}
+
+.tag-badge__remove {
+    font-size: .8rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: .8;
+    color: #fff;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+}
+
+.tag-badge__remove:hover {
+    opacity: 1;
+}
+    /* --- Tag Badge (shared everywhere) End --- */
 
                 /*    TAGS PAGE    */
 .tags-page-grid {
