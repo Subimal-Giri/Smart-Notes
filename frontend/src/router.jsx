@@ -7,6 +7,8 @@ import LandingPage from "./pages/LandingPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import DashboardPage from "./pages/DashboardPage.jsx";
+import AllNotesPage from "./pages/AllNotesPage.jsx";
+import NotePage from "./pages/NotePage.jsx";
 
 function AppRouter() {
     return (
@@ -21,6 +23,8 @@ function AppRouter() {
             <Route element={<ProtectedRoute />}>
                 <Route element={<MainLayout />}>
                     <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route path="/notes" element={<AllNotesPage />} />
+                    <Route path="/notes/:id" element={<NotePage />} />
                 </Route>
             </Route>
 
