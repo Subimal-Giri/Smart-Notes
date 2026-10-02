@@ -10,6 +10,7 @@ import DashboardPage from "./pages/DashboardPage.jsx";
 import AllNotesPage from "./pages/AllNotesPage.jsx";
 import NotePage from "./pages/NotePage.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
+import ArchivePage from "./pages/ArchivePage.jsx";
 
 function AppRouter() {
     return (
@@ -27,6 +28,7 @@ function AppRouter() {
                     <Route path="/notes" element={<AllNotesPage />} />
                     <Route path="/notes/:id" element={<NotePage />} />
                     <Route path="/search" element={<SearchPage />} />
+                    <Route path="/archive" element={<ArchivePage />} />
                 </Route>
             </Route>
 
