@@ -12,6 +12,7 @@ import NotePage from "./pages/NotePage.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
 import ArchivePage from "./pages/ArchivePage.jsx";
 import TrashPage from  "./pages/TrashPage.jsx";
+import TagsPage from "./pages/TagsPage.jsx";
 
 function AppRouter() {
     return (
@@ -31,6 +32,7 @@ function AppRouter() {
                     <Route path="/search" element={<SearchPage />} />
                     <Route path="/archive" element={<ArchivePage />} />
                     <Route path="/trash" element={<TrashPage />} />
+                    <Route path="/tags" element={<TagsPage />} />
                 </Route>
             </Route>
 
