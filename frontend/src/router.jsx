@@ -15,6 +15,8 @@ import TrashPage from  "./pages/TrashPage.jsx";
 import TagsPage from "./pages/TagsPage.jsx";
 import SettingsPage from "./pages/SettingsPage.jsx";
 
+import NotFoundPage from "./pages/NotFoundPage.jsx";
+
 function AppRouter() {
     return (
         <Routes>
@@ -38,6 +40,7 @@ function AppRouter() {
                 </Route>
             </Route>
 
+            <Route path="*" element={<NotFoundPage />} />
         </Routes>
     );
 }
