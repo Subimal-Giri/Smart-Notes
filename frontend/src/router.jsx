@@ -13,6 +13,7 @@ import SearchPage from "./pages/SearchPage.jsx";
 import ArchivePage from "./pages/ArchivePage.jsx";
 import TrashPage from  "./pages/TrashPage.jsx";
 import TagsPage from "./pages/TagsPage.jsx";
+import SettingsPage from "./pages/SettingsPage.jsx";
 
 function AppRouter() {
     return (
@@ -33,6 +34,7 @@ function AppRouter() {
                     <Route path="/archive" element={<ArchivePage />} />
                     <Route path="/trash" element={<TrashPage />} />
                     <Route path="/tags" element={<TagsPage />} />
+                    <Route path="/settings" element={<SettingsPage />} />
                 </Route>
             </Route>
 
