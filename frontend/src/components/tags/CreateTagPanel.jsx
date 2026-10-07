@@ -38,13 +38,13 @@ function CreateTagPanel({ onCreate }) {
                     <label className="form-label">Color</label>
                     <div className="color-swatch-row">
                         {TAG_COLORS.map((c) => (
-                        <button
-                            type="button"
-                            key={c}
-                            className={`color-swatch${color === c ? ' selected' : ''}`}
-                            style={{ backgroundColor: c }}
-                            onClick={() => setColor(c)}
-                        />
+                            <button
+                                type="button"
+                                key={c}
+                                className={`color-swatch${color === c ? ' selected' : ''}`}
+                                style={{ backgroundColor: c }}
+                                onClick={() => setColor(c)}
+                            />
                         ))}
                     </div>
                 </div>
