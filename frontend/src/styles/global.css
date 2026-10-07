@@ -527,8 +527,37 @@ button:disabled {
     font-size: 1.75rem;
 }
     /* --- Avatar End --- */
+    /* --- Badge / Pill Start --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: .6875rem;
+  font-weight: 600;
+}
 
+.badge--primary {
+  background: var(--primary-light);
+  color: var(--primary-text);
+}
 
+.badge--success {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.badge--warning {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.badge--danger {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+    /* --- Badge / Pill End --- */
     /* --- Modal Start --- */
 .modal-overlay {
     position: fixed;
@@ -735,10 +764,33 @@ button:disabled {
     line-height: 1.6;
 }
     /* --- Empty state End --- */
+    /* --- Color swatches (tags) Start --- */
+.color-swatch-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
 
+.color-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform var(--ease), border-color var(--ease);
+  flex-shrink: 0;
+}
 
+.color-swatch:hover {
+  transform: scale(1.12);
+}
 
-
+.color-swatch.selected {
+  border-color: var(--text);
+  transform: scale(1.18);
+  box-shadow: 0 0 0 2px var(--bg-elevated);
+}
+    /* --- Color swatches (tags) End --- */
     /* --- Toggle switch Start --- */
 .toggle-switch {
     width: 42px;
@@ -773,7 +825,6 @@ button:disabled {
     transform: translateX(18px);
 }
     /* --- Toggle switch End --- */
-
 
 
                 /*   LANDING PAGE   */
